@@ -14,11 +14,11 @@
     "port": 8080,
     "ingresses": ["https://static-v4-decorator.nais.preprod.local"],
     "liveness": {
-      "path": "/static-v4-decorator/isAlive",
+      "path": "/isAlive",
       "initialDelay": 10
     },
     "readiness": {
-      "path": "/static-v4-decorator/isReady",
+      "path": "/isReady",
       "initialDelay": 10
     },
     "replicas": {

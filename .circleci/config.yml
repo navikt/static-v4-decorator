@@ -17,7 +17,7 @@ jobs:
             - node-v1-{{ .Branch }}-
             - node-v1-
       - run:
-          name: Bygg React app
+          name: Installer avhengigheter
           command: |
             npm ci
       - save_cache:
@@ -59,7 +59,7 @@ jobs:
                 -d '{
                      "ref": "'"$COMMIT_SHORT"'",
                      "description": "Automated deployment request for static-v4-decorator from team personbruker",
-                     "environment": "dev-sbs",
+                     "environment": "dev-fss",
                      "required_contexts": [],
                      "payload": {
                        "version": [1, 0, 0],
@@ -92,7 +92,7 @@ jobs:
                 -d '{
                      "ref": "'"$COMMIT_SHORT"'",
                      "description": "Automated deployment request for static-v4-decorator from team personbruker",
-                     "environment": "dev-sbs",
+                     "environment": "dev-fss",
                      "required_contexts": [],
                      "payload": {
                        "version": [1, 0, 0],
