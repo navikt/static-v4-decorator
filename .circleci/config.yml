@@ -85,14 +85,14 @@ jobs:
           command: |
             PROD_RESOURCE=$(cat nais-prod.json | jq '.spec.image = "'$DOCKER_IMAGE_VERSIONED'"')
       - run:
-          name: Deployer til dev
+          name: Deployer til prod
           command: |
             curl -i \
                 -X POST \
                 -d '{
                      "ref": "'"$COMMIT_SHORT"'",
                      "description": "Automated deployment request for static-v4-decorator from team personbruker",
-                     "environment": "dev-fss",
+                     "environment": "prod-fss",
                      "required_contexts": [],
                      "payload": {
                        "version": [1, 0, 0],
