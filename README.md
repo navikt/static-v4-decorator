@@ -1,0 +1,1 @@
+# static-v4-decorator
