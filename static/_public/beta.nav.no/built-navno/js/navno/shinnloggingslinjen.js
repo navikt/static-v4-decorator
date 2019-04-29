@@ -1,0 +1,1 @@
+Innloggingslinje.init();

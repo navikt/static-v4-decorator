@@ -1,6 +1,8 @@
 const express = require("express");
 
 const app = express();
+app.use(express.static("static"));
+
 const isProduction = process.env.NODE_ENV === "production";
 const allowedOrigin = isProduction
   ? `(http|https)://(.*).nav.no`
