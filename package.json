@@ -1,0 +1,31 @@
+{
+  "name": "static-v4-decorator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npm run lint && node index.js",
+    "startDev": "npm run lint && nodemon index.js",
+    "lint": "eslint index.js",
+    "docker-build": "docker build -t static-v4-decorator .",
+    "docker-run": "docker run --rm -p 8080:8080 static-v4-decorator",
+    "deploy-preprod": "kubectl apply -f nais-preprod.yaml",
+    "deploy-prod": "kubectl apply -f nais-prod.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navikt/static-v4-decorator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navikt/static-v4-decorator/issues"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}

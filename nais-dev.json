@@ -1,0 +1,38 @@
+{
+  "apiVersion": "nais.io/v1alpha1",
+  "kind": "Application",
+  "metadata": {
+    "name": "static-v4-decorator",
+    "namespace": "default",
+    "labels": {
+      "team": "personbruker"
+    }
+  },
+  "spec": {
+    "image": "navikt/static-v4-decorator:LATEST",
+    "team": "personbruker",
+    "port": 8080,
+    "ingresses": ["https://static-v4-decorator.nais.preprod.local"],
+    "liveness": {
+      "path": "/static-v4-decorator/isAlive",
+      "initialDelay": 10
+    },
+    "readiness": {
+      "path": "/static-v4-decorator/isReady",
+      "initialDelay": 10
+    },
+    "replicas": {
+      "min": 2,
+      "max": 4
+    },
+    "resources": {
+      "limits": {
+        "cpu": 3,
+        "memory": "768Mi"
+      },
+      "requests": {
+        "memory": "512Mi"
+      }
+    }
+  }
+}
