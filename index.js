@@ -21,10 +21,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/common-html/v4/navno", (req, res) => {
-  console.log(req.query);
-  res.sendfile("/common-html/v4/navno.html", { root: "./static" });
-});
+app.get("/t/common-html/v4/navno", (req, res) =>
+  res.sendfile("/t/common-html/v4/navno.html", { root: "./static" })
+);
+
+app.get("/q/common-html/v4/navno", (req, res) =>
+  res.sendfile("/q/common-html/v4/navno.html", { root: "./static" })
+);
+
+app.get("/p/common-html/v4/navno", (req, res) =>
+  res.sendfile("/p/common-html/v4/navno.html", { root: "./static" })
+);
 
 app.get("/isAlive", (req, res) => res.sendStatus(200));
 app.get("/isReady", (req, res) => res.sendStatus(200));
