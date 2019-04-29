@@ -23,7 +23,8 @@
     "url": "https://github.com/navikt/static-v4-decorator/issues"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "jest": "^24.7.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.11"
