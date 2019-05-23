@@ -10,7 +10,7 @@
     "lint": "eslint index.js",
     "docker-build": "docker build -t static-v4-decorator .",
     "docker-run": "docker run --rm -p 8080:8080 static-v4-decorator",
-    "deploy-preprod": "kubectl apply -f nais-preprod.yaml",
+    "deploy-preprod": "kubectl apply -f nais-dev.yaml",
     "deploy-prod": "kubectl apply -f nais-prod.yaml"
   },
   "repository": {
