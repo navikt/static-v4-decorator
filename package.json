@@ -8,8 +8,8 @@
     "start": "npm run lint && node index.js",
     "startDev": "npm run lint && nodemon index.js",
     "lint": "eslint index.js",
-    "docker-build": "docker build -t static-v4-decorator .",
-    "docker-run": "docker run --rm -p 8080:8080 static-v4-decorator",
+    "docker-build": "docker build -t navikt/static-v4-decorator .",
+    "docker-run": "docker run --rm -p 8080:8080 navikt/static-v4-decorator",
     "deploy-preprod": "kubectl apply -f nais-dev.yaml",
     "deploy-prod": "kubectl apply -f nais-prod.yaml"
   },
