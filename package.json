@@ -11,7 +11,9 @@
     "docker-build": "docker build -t static-v4-decorator .",
     "docker-run": "docker run --rm -p 8080:8080 static-v4-decorator",
     "deploy-preprod": "kubectl apply -f nais-dev.yaml",
-    "deploy-prod": "kubectl apply -f nais-prod.yaml"
+    "deploy-prod": "kubectl apply -f nais-prod.yaml",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,8 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "snyk": "^1.208.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -33,5 +36,6 @@
     "lint": "^1.1.2",
     "nodemon": "^1.18.11",
     "prettier": "^1.17.0"
-  }
+  },
+  "snyk": true
 }
