@@ -13,11 +13,6 @@ jobs:
       - name: Sjekk ut koden
         uses: actions/checkout@v2
 
-      - name: Bygg prosjekt og kjør tester
-        uses: navikt/pb-common-gh-actions/build@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Bygg og kjør tester
         run: |
           npm ci
@@ -42,7 +37,7 @@ jobs:
         env:
           REF: ${{ github.sha }}
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-sbs
+          CLUSTER: prod-fss
           RESOURCE: ./nais/prod-fss/nais.yaml
           VAR: version=${{ env.IMAGE }}
           PRINT_PAYLOAD: true
@@ -53,6 +48,6 @@ jobs:
           REF: ${{ github.sha }}
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
-          RESOURCE: ./nais/dev-sbs/nais.yaml
+          RESOURCE: ./nais/dev-fss/nais.yaml
           VAR: version=${{ env.IMAGE }}
           PRINT_PAYLOAD: true
