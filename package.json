@@ -21,15 +21,15 @@
     "url": "https://github.com/navikt/static-v4-decorator/issues"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "jest": "^24.7.1"
+    "express": "^4.17.1",
+    "jest": "^24.9.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "lint": "^1.1.2",
-    "nodemon": "^1.18.11",
-    "prettier": "^1.17.0"
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1"
   }
 }
