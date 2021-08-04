@@ -2,7 +2,7 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: static-v4-decorator
-  namespace: default
+  namespace: personbruker
   labels:
     team: personbruker
 spec:
