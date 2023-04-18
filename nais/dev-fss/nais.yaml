@@ -15,15 +15,14 @@ spec:
     path: /isReady
     initialDelay: 10
   replicas:
-    min: 2
-    max: 4
+    min: 1
+    max: 1
   ingresses:
     - "https://static-v4-decorator.nais.preprod.local"
   resources:
     limits:
-      cpu: "3"
-      memory: 768Mi
+      memory: 256Mi
     requests:
-      cpu: "500m"
-      memory: 512Mi
+      cpu: 25m
+      memory: 64Mi
 

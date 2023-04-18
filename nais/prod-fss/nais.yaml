@@ -21,9 +21,8 @@ spec:
     - "https://static-v4-decorator.nais.adeo.no"
   resources:
     limits:
-      cpu: "3"
-      memory: 768Mi
+      memory: 256Mi
     requests:
-      cpu: "500m"
-      memory: 512Mi
+      cpu: 50m
+      memory: 128Mi
 
