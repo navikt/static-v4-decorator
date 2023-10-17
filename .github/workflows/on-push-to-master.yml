@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-publish-on-master:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
