@@ -1,4 +1,4 @@
-name: Bygg og publiser docker-image for master
+name: Build and deploy to nais
 
 on:
   push:
@@ -13,33 +13,24 @@ jobs:
         uses: actions/checkout@v3
       - name: Install dependencies
         run: npm ci
-      - name: Bygg, tag og push Docker image
-        uses: navikt/pb-common-gh-actions/docker-publish@v2
+      - name: Build and push docker image
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
         with:
-          TAG_LATEST: "true"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Tag release i git-repo-et
-        run: |
-          TAG="$(git log -1 --pretty='%ad' --date=format:'%Y%m%d%H%M%S')-$(git log -1 --pretty='%h')"
-          git config user.name "Team Personbruker CI"
-          git config user.email "personbruker@nav.no"
-          git tag $TAG
-          git push origin $TAG
+          team: personbruker
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
       - name: 'Deploy-er til default i prod-fss'
         uses: 'nais/deploy/actions/deploy@v1'
         env:
-          REF: ${{ github.sha }}
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-fss
           RESOURCE: ./nais/prod-fss/nais.yaml
-          VAR: version=${{ env.IMAGE }}
-          PRINT_PAYLOAD: true
+          VAR: version=${{steps.docker-build-push.outputs.image}}
       - name: 'Deploy-er til  i dev-fss'
         uses: 'nais/deploy/actions/deploy@v1'
         env:
-          REF: ${{ github.sha }}
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
           RESOURCE: ./nais/dev-fss/nais.yaml
-          VAR: version=${{ env.IMAGE }}
-          PRINT_PAYLOAD: true
+          VAR: version=${{steps.docker-build-push.outputs.image}}
