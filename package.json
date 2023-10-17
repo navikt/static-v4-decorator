@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "start": "npm run lint && node index.js",
-    "startDev": "npm run lint && nodemon index.js",
-    "lint": "eslint index.js",
+    "start": "node index.js",
     "docker-build": "docker build -t static-v4-decorator .",
     "docker-run": "docker run --rm -p 8080:8080 static-v4-decorator"
   },
@@ -21,15 +18,6 @@
     "url": "https://github.com/navikt/static-v4-decorator/issues"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "jest": "^24.9.0"
-  },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "lint": "^1.1.2",
-    "nodemon": "^1.19.4",
-    "prettier": "^1.19.1"
+    "express": "4.18.2"
   }
 }
