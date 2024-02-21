@@ -24,16 +24,14 @@ jobs:
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
       - name: 'Deploy to prod-fss'
-        uses: 'nais/deploy/actions/deploy@v1'
+        uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-fss
           RESOURCE: ./nais/prod-fss/nais.yaml
           VAR: version=${{steps.docker-build-push.outputs.image}}
       - name: 'Deploy to dev-fss'
-        uses: 'nais/deploy/actions/deploy@v1'
+        uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-fss
           RESOURCE: ./nais/dev-fss/nais.yaml
           VAR: version=${{steps.docker-build-push.outputs.image}}
