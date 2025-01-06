@@ -2,7 +2,7 @@
 En applikasjon som serverer de statiske filene i V4 dekoratøren
 
 ## !!! DEPRECATED !!!
-Vil arkiveres 06.01.2025
+Vil arkiveres 14.01.2025
 
 ## Start
 ```
